@@ -24,11 +24,10 @@ public class Notification {
     @Column(nullable = false)
     private Long userId;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "template_id", nullable = false)
-    private NotificationTemplate template;
+    @Column(nullable = false)
+    private Long typeId;
 
-    @Column
+    @Column(nullable = false)
     private String title;
 
     @Column
