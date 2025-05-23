@@ -22,17 +22,6 @@ public interface NotificationRepository extends JpaRepository<Notification, Long
 
     List<Notification> findByStatusAndSentAtBefore(NotificationStatus status, LocalDateTime sentAt);
 
-    @Query("SELECT n FROM Notification n WHERE n.userId = :userId AND n.status = :status")
-    List<Notification> findByUserAndStatus(Long userId, NotificationStatus status);
-
-    @Modifying
-    @Query("UPDATE Notification n SET n.status = :status, n.sentAt = :sentAt WHERE n.id = :id")
-    void updateStatusAndSentAt(Long id, NotificationStatus status, LocalDateTime sentAt);
-
-    @Modifying
-    @Query("UPDATE Notification n SET n.status = :status, n.readAt = :readAt WHERE n.id = :id")
-    void updateStatusAndReadAt(Long id, NotificationStatus status, LocalDateTime readAt);
-
     boolean existsByUserIdAndStatus(Long userId, NotificationStatus status);
 
 }
