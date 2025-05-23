@@ -8,18 +8,17 @@ import lombok.Setter;
 
 import java.io.Serializable;
 
-@Entity
-@Table(name = "user_notification_settings")
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
+@Entity(name = "user_settings")
 public class UserNotificationSettings {
 
     @EmbeddedId
     private UserNotificationSettingsId id;
 
-    @Column(name = "is_enabled", nullable = false)
+    @Column(nullable = false)
     private Boolean isEnabled = true;
-}
 
+}
