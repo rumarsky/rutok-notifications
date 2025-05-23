@@ -15,10 +15,11 @@ import java.io.Serializable;
 @NoArgsConstructor
 public class UserNotificationSettingsId implements Serializable {
 
-    @Column(name = "user_id", nullable = false)
+    @Column(nullable = false)
     private Long userId;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "type_id", nullable = false)
     private NotificationType type;
+
 }

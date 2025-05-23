@@ -8,42 +8,37 @@ import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.springframework.data.annotation.CreatedDate;
 
-import java.time.LocalDateTime;
+import java.time.*;
 
-@Entity
-@Table(name = "notifications")
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
+@Entity(name = "notifications")
 public class Notification {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "user_id", nullable = false)
+    @Column(nullable = false)
     private Long userId;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "template_id", nullable = false)
     private NotificationTemplate template;
 
-    @Column(columnDefinition = "jsonb")
-    private String payload;
+    @Column
+    private String title;
+
+    @Column
+    private String message;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "status", nullable = false)
     private NotificationStatus status;
 
-    @Column(name = "sent_at")
-    private LocalDateTime sentAt;
-
-    @Column(name = "read_at")
-    private LocalDateTime readAt;
-
-    @CreationTimestamp
-    @Column(name = "created_at", updatable = false)
-    private LocalDateTime createdAt;
+    @Column(nullable = false)
+    private ZonedDateTime sentAt;
 
 }

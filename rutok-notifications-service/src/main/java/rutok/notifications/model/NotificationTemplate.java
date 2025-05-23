@@ -6,12 +6,11 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Entity
-@Table(name = "notification_templates")
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
+@Entity(name = "templates")
 public class NotificationTemplate {
 
     @Id
@@ -26,10 +25,10 @@ public class NotificationTemplate {
     @JoinColumn(name = "type_id", nullable = false)
     private NotificationType type;
 
-    @Column(name = "title_template", nullable = false, length = 255)
+    @Column(nullable = false)
     private String titleTemplate;
 
-    @Column(name = "message_template", nullable = false, columnDefinition = "TEXT")
+    @Column(nullable = false)
     private String messageTemplate;
 
 }
