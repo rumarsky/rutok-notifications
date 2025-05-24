@@ -3,7 +3,7 @@ package rutok.notifications.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import rutok.notifications.model.*;
+import rutok.notifications.entity.*;
 
 import java.util.Optional;
 

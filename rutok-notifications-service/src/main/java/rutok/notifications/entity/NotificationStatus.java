@@ -1,4 +1,4 @@
-package rutok.notifications.model;
+package rutok.notifications.entity;
 
 public enum NotificationStatus {
     PENDING,

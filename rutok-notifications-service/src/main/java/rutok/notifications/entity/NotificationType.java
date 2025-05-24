@@ -1,4 +1,4 @@
-package rutok.notifications.model;
+package rutok.notifications.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -10,8 +10,8 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity(name = "channels")
-public class NotificationChannel {
+@Entity(name = "types")
+public class NotificationType {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
